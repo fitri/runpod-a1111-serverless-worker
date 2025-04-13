@@ -7,7 +7,7 @@ FROM alpine/git:2.43.0 as download
 # NOTE: CivitAI usually requires an API token, so you need to add it in the header
 #       of the wget command if you're using a model from CivitAI.
 RUN apk add --no-cache wget && \
-    wget -q -O /model.safetensors https://civitai.com/api/download/models/1522905?type=Model&format=SafeTensor&size=pruned&fp=fp16
+    wget -LO /model.safetensors https://civitai-delivery-worker-prod.5ac0637cfd0766c97916cefa3764fbdf.r2.cloudflarestorage.com/model/81744/epicrealismxl.Tpw9.safetensors?X-Amz-Expires=86400&response-content-disposition=attachment%3B%20filename%3D%22epicrealismXL_vxviLastfameRealism.safetensors%22&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e01358d793ad6966166af8b3064953ad/20250413/us-east-1/s3/aws4_request&X-Amz-Date=20250413T160351Z&X-Amz-SignedHeaders=host&X-Amz-Signature=155ccf028d0b0432b1eb00dd812d90ae32a6592cb94043934ab2f8b767c732cb
 
 # ---------------------------------------------------------------------------- #
 #                        Stage 2: Build the final image                        #
