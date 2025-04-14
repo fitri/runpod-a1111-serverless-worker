@@ -44,6 +44,14 @@ def run_inference(inference_request):
     return response.json()
 
 
+def get_samplers():
+    """
+    Get the list of available samplers.
+    """
+    response = automatic_session.get(url=f'{LOCAL_URL}/samplers', timeout=120)
+    return response.json()
+
+
 # ---------------------------------------------------------------------------- #
 #                                RunPod Handler                                #
 # ---------------------------------------------------------------------------- #
@@ -51,11 +59,18 @@ def handler(event):
     """
     This is the handler function that will be called by the serverless.
     """
-
-    json = run_inference(event["input"])
-
-    # return the output that you want to be returned like pre-signed URLs to output artifacts
-    return json
+    # Check if the request is for samplers list
+    if event.get("input", {}).get("type") == "get_samplers":
+        return {
+            "endpoint": "samplers",
+            "data": get_samplers()
+        }
+    
+    # Default txt2img inference
+    return {
+        "endpoint": "txt2img",
+        "data": run_inference(event["input"])
+    }
 
 
 if __name__ == "__main__":
