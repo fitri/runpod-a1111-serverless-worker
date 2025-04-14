@@ -8,7 +8,7 @@ FROM alpine/git:2.43.0 as download
 #       of the wget command if you're using a model from CivitAI.
 # Get token from profile setting then include it with &token=token_taken_from_website at the end of the urls
 RUN apk add --no-cache wget && \
-    wget -LO /model.safetensors "https://civitai.com/api/download/models/691639?type=Model&format=SafeTensor&size=pruned&fp=fp32&token=c971befab549f15355f54427df0b66db"
+    wget -LO /model.safetensors "https://civitai.com/api/download/models/1520822?type=Model&format=SafeTensor&size=pruned&fp=fp16&token=c971befab549f15355f54427df0b66db"
 
 # ---------------------------------------------------------------------------- #
 #                        Stage 2: Build the final image                        #
