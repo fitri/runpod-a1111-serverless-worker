@@ -60,6 +60,8 @@ def handler(event):
     This is the handler function that will be called by the serverless.
     """
     # Check if the request is for samplers list
+    # this section check if the request json load of with value 'input' inside it contain key-value type: "get_samplers"
+    # example: {"input": "type": "get_samplers"}
     if event.get("input", {}).get("type") == "get_samplers":
         return {
             "endpoint": "samplers",
