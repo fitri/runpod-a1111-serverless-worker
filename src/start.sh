@@ -22,6 +22,7 @@ if [ ! -f "$BOOTSTRAP_FLAG" ]; then
     source /runpod-volume/.venv/bin/activate
     
     echo "Installing modules and cache the webui"
+    pip install --upgrade pip
     pip install --no-cache-dir -r /runpod-volume/stable-diffusion-webui/requirements.txt
     cp /cache.py /runpod-volume/stable-diffusion-webui/
     /runpod-volume/stable-diffusion-webui/python cache.py --use-cpu=all --ckpt /runpod-volume/stable-diffusion-webui/models/Stable-diffusion/model.safetensors
