@@ -9,6 +9,12 @@
 This worker is a RunPod worker that uses the Stable Diffusion model for AI tasks. The worker is built upon the Stable Diffusion WebUI, which is a user interface for Stable Diffusion AI models.
 </div>
 
+## DRAFT TOBE MODIFIED
+create a network volume and then create a pods from it, normal cheapest cpu pods will do then do git clone 
+git clone git@github.com:fitri/runpod-stable-diffusion-webui.git stable-diffusion-webui
+
+then just create a serverless endpoint in runpod and point this repository with this branch
+
 ## Model
 
 The worker uses the Stable Diffusion model, which has been optimized for RunPod. This model is stored as a SafeTensors file, which is a format that facilitates efficient loading and execution of AI models. You may download the model file from the following link: here.
