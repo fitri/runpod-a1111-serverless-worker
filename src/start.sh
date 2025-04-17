@@ -63,5 +63,5 @@ python /runpod-volume/stable-diffusion-webui/webui.py \
   --no-hashing \
   --no-download-sd-model > /runpod-volume/runpod_serverless_webui.log 2>&1 &
 
-echo "Starting RunPod Handler"
+echo "Starting RunPod Handler with python from $(which python)"
 python -u /rp_handler.py
