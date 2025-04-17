@@ -12,7 +12,7 @@ This worker is a RunPod worker that uses the Stable Diffusion model for AI tasks
 ## DRAFT TOBE MODIFIED
 Create a network volume and then create a pods from it, normal cheapest cpu pods will do then do git clone 
 
-```git clone git@github.com:fitri/runpod-stable-diffusion-webui.git stable-diffusion-webui```
+```git clone https://github.com/fitri/runpod-stable-diffusion-webui.git stable-diffusion-webui```
 
 then just create a serverless endpoint in runpod and point this repository with this branch
 
