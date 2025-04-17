@@ -35,6 +35,7 @@ if [ ! -f "$BOOTSTRAP_FLAG" ]; then
     echo "Create bootstrapped file for marking installation run"
     deactivate
     touch "$BOOTSTRAP_FLAG"
+    rm "$LOCK_FILE"
 fi
 
 echo "Source virtual python env"
