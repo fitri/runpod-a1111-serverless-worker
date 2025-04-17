@@ -21,11 +21,13 @@ if [ ! -f "$BOOTSTRAP_FLAG" ]; then
     python -m venv /runpod-volume/.venv
     source /runpod-volume/.venv/bin/activate
     
-    echo "Installing modules and cache the webui"
+    echo "Installing python dependencies"
     pip install --upgrade pip
     pip install --no-cache-dir -r /runpod-volume/stable-diffusion-webui/requirements.txt
+
+    echo "Caching stable diffusion webui"
     cp /cache.py /runpod-volume/stable-diffusion-webui/
-    /runpod-volume/stable-diffusion-webui/python cache.py --use-cpu=all --ckpt /runpod-volume/stable-diffusion-webui/models/Stable-diffusion/model.safetensors
+    python cache.py --use-cpu=all --ckpt /runpod-volume/stable-diffusion-webui/models/Stable-diffusion/model.safetensors
 
     echo "Initalized stable diffusion webui"
     python -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test 
