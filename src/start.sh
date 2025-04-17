@@ -25,14 +25,14 @@ if [ ! -f "$BOOTSTRAP_FLAG" ]; then
     pip install --upgrade pip
     pip install --no-cache-dir -r /runpod-volume/stable-diffusion-webui/requirements.txt
 
+    echo "Initalized stable diffusion webui"
+    python -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test 
+
     echo "Caching stable diffusion webui"
     cp /cache.py /runpod-volume/stable-diffusion-webui/
     python cache.py --use-cpu=all --ckpt /runpod-volume/stable-diffusion-webui/models/Stable-diffusion/model.safetensors
 
-    echo "Initalized stable diffusion webui"
-    python -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test 
-
-    # echo "Create bootstrapped file for marking installation run"
+    echo "Create bootstrapped file for marking installation run"
     deactivate
     touch "$BOOTSTRAP_FLAG"
 fi
