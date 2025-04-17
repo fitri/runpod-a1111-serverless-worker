@@ -28,10 +28,7 @@ if [ ! -f "$BOOTSTRAP_FLAG" ]; then
     /runpod-volume/stable-diffusion-webui/python cache.py --use-cpu=all --ckpt /runpod-volume/stable-diffusion-webui/models/Stable-diffusion/model.safetensors
 
     echo "Initalized stable diffusion webui"
-    if [ ! -d "$STABILITY_AI" ]; then
-        echo "Initialized stable diffusion webui first time installation"
-        python -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test 
-    fi
+    python -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test 
 
     # echo "Create bootstrapped file for marking installation run"
     deactivate
