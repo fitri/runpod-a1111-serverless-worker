@@ -51,7 +51,7 @@ python /runpod-volume/stable-diffusion-webui/webui.py \
   --skip-python-version-check \
   --skip-torch-cuda-test \
   --skip-install \
-  --ckpt /model.safetensors \
+  --ckpt /runpod-volume/stable-diffusion-webui/models/Stable-diffusion/model.safetensors \
   --lowram \
   --opt-sdp-attention \
   --disable-safe-unpickle \
