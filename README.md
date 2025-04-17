@@ -10,7 +10,7 @@ This worker is a RunPod worker that uses the Stable Diffusion model for AI tasks
 </div>
 
 ## DRAFT TOBE MODIFIED
-create a network volume and then create a pods from it, normal cheapest cpu pods will do then do git clone 
+Create a network volume and then create a pods from it, normal cheapest cpu pods will do then do git clone 
 
 ```git clone git@github.com:fitri/runpod-stable-diffusion-webui.git stable-diffusion-webui```
 
