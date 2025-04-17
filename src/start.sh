@@ -40,7 +40,6 @@ fi
 echo "Source virtual python env"
 source /runpod-volume/.venv/bin/activate
 
-echo "Checking for existing installation"
 echo "Starting WebUI API"
 TCMALLOC="$(ldconfig -p | grep -Po "libtcmalloc.so.\d" | head -n 1)"
 export LD_PRELOAD="${TCMALLOC}"
