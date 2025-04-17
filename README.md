@@ -14,6 +14,10 @@ Create a network volume and then create a pods from it, normal cheapest cpu pods
 
 ```git clone https://github.com/fitri/runpod-stable-diffusion-webui.git stable-diffusion-webui```
 
+Download a model with name model.safetensor into the stable-diffusion-webui/models/Stable-diffusion/
+
+eg: wget -OL stable-diffusion-webui/models/Stable-diffusion/model.safetensors civitai-model-url-path&token=civit-ai-token
+
 then just create a serverless endpoint in runpod and point this repository with this branch
 
 ## Model
