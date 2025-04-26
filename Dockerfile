@@ -7,6 +7,7 @@ FROM alpine/git:2.43.0 as download
 #       of the wget command if you're using a model from CivitAI.
 RUN apk add --no-cache wget && \
     wget -q -O /model.safetensors "https://civitai.com/api/download/models/403131?type=Model&format=SafeTensor&size=full&fp=fp16&token=c971befab549f15355f54427df0b66db"
+    wget -q -O /negative_embedding.safetensors "https://civitai.com/api/download/models/797474?type=Negative&format=Other&token=c971befab549f15355f54427df0b66db"
 
 # ---------------------------------------------------------------------------- #
 #                        Stage 2: Build the final image                        #
@@ -36,6 +37,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     python -c "from launch import prepare_environment; prepare_environment()" --skip-torch-cuda-test
 
 COPY --from=download /model.safetensors /model.safetensors
+COPY --from=download /negative_embedding.safetensors /stable-diffusion-webui/embeddings/negative_embedding.safetensors
 
 # install dependencies
 COPY requirements.txt .
